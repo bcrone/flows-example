@@ -36,7 +36,7 @@ config = Config(
             provider=SlurmProvider(
                 partition='standard',
                 launcher=SrunLauncher(),
-				account='support',
+				account='apboyle99',
 
                 # string to prepend to #SBATCH blocks in the submit
                 # script to the scheduler eg: '#SBATCH --constraint=knl,quad,cache'
@@ -65,7 +65,7 @@ config = Config(
 # urn:globus:auth:identity:{user_uuid}
 # urn:globus:groups:id:{group_uuid}
 meta = {
-    "name": "gl-login1",
+    "name": "poppy-test",
     "description": "",
     "organization": "",
     "department": "",
