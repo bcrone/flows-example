@@ -2,9 +2,8 @@
     "additionalProperties": false,
     "required": [
 	    "runid",
-	    "deletesource",
-	    "source",
-	    "scratch",
+	    "gl",
+	    "poppy",
 	    "function"
     ],
     "properties": {
@@ -13,74 +12,66 @@
             "type": "string",
             "title": "Unique id used in titles and folders"
 	},
-	"deletesource": {
-	    "additionalProperties": false,
-	    "type": "boolean",
-	    "default": false,
-	    "title": "If or not to delete source path after archiving is complete"
-	},
-        "source": {
-            "additionalProperties": false,
-            "type": "object",
-            "format": "globus-collection",
-            "title": "Source of data collection ID and path",
-            "required": [
-        	    "id",
-        	    "path"
-            ],
-            "properties":{
-        	    "id": {
-        		    "type": "string",
-        		    "format": "uuid"
-        	    },
-        	    "path": {
-        		    "type": "string"
-        	    }
-            }
-        },
-        "scratch": {
-            "additionalProperties": false,
-            "type": "object",
-            "format": "globus-collection",
-            "title": "Scratch Target",
-            "required": [
-        	    "id",
-        	    "path"
-            ],
-            "properties":{
-        	    "id": {
-			    "title": "Globus endpoint to transfer data to",
-        		    "type": "string",
-        		    "format": "uuid",
-			    "default": "e0370902-9f48-11e9-821b-02b7a92d8e58"
-        	    },
-        	    "path": {
-			    "title": "Path on globus server to write data to",
-        		    "type": "string",
-			    "default": "/scratch/support_root/support/brockp/dest"
-        	    }
-            }
-        },
+    "gl": {
+        "additionalProperties": false,
+        "type": "object",
+        "format": "globus-collection",
+        "title": "Great Lakes ID and path",
+        "required": [
+    	    "id",
+    	    "path"
+        ],
+        "properties":{
+    	    "id": {
+                "title": "Great Lakes endpoint",
+    		    "type": "string",
+    		    "format": "uuid"
+    	    },
+    	    "path": {
+                "title": "Great Lakes path",
+    		    "type": "string"
+    	    }
+        }
+    },
+    "poppy": {
+        "additionalProperties": false,
+        "type": "object",
+        "format": "globus-collection",
+        "title": "Poppy ID and path",
+        "required": [
+    	    "id",
+    	    "path"
+        ],
+        "properties":{
+    	    "id": {
+		        "title": "Poppy endpoint",
+    		    "type": "string",
+    		    "format": "uuid"
+    	    },
+    	    "path": {
+		        "title": "Poppy path",
+    		    "type": "string"
+    	    }
+        }
+    },
 	"function": {
             "additionalProperties": false,
             "type": "object",
 	    "title": "funcx inputs",
 	    "required": [
 		    "endpoint",
-		    "functionfunc"
+		    "func"
 	    ],
 	    "properties": {
 		    "endpoint": {
 			    "title": "UUID of funcx endpoint to run on",
 			    "type": "string",
-			    "format": "uuid",
-			    "default": "3d0f563e-f797-40ba-a960-e4614eb258a3"
+			    "format": "uuid"
 		    },
-		    "functionfunc": {
+		    "func": {
 			    "title": "UUID of funcx functoin to call",
 			    "type": "string",
-			    "format": "uuid",
-			    "default": "1830ef69-778c-44ef-8c23-c687f7734eb1"
+			    "format": "uuid"
 		    }
 	    }
 	}

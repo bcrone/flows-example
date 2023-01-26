@@ -1,19 +1,19 @@
 {
-	"Comment": "Brock is learning how to create a flow",
-	"StartAt": "SourceToScratch",
+	"Comment": "Testing Flow",
+	"StartAt": "GLToPoppy",
 	"States": {
-		"SourceToScratch": {
-			"Comment": "Copy data from data source to a scratch space",
+		"GLToPoppy": {
+			"Comment": "Test copy data from Great Lakes to Poppy",
 			"Type": "Action",
 			"ActionUrl": "https://actions.globus.org/transfer/transfer",
 		        "Parameters": {
-		            "label.=": "runid + ' Source to scratch transfer'",
-			    "source_endpoint_id.$": "$.source.id",
-			    "destination_endpoint_id.$": "$.scratch.id",
+		            "label.=": "runid + ' Great Lakes to Poppy transfer'",
+			    "source_endpoint_id.$": "$.gl.id",
+			    "destination_endpoint_id.$": "$.poppy.id",
 			    "transfer_items": [
 			        {
-			            "source_path.$": "$.source.path",
-			            "destination_path.$": "$.scratch.path",
+			            "source_path.$": "$.gl.path",
+			            "destination_path.$": "$.poppy.path",
 			            "recursive": true
 			        }
 			    ],
@@ -33,7 +33,7 @@
 				"tasks": [
 					{
 					"endpoint.$":"$.function.endpoint",
-					"function.$": "$.function.functionfunc",
+					"function.$": "$.function.func",
 					"payload": {
 						"a": 10,
 						"b": 20
@@ -42,27 +42,6 @@
 				]
 			},
 			"ResultPath": "$.SumOutput",
-			"Next": "ChoiceDeleteSource"
-		},
-		"ChoiceDeleteSource": {
-			"Type": "Choice",
-			"Choices": [
-				{
-					"Variable": "$.deletesource",
-					"BooleanEquals": true,
-					"Next": "RunDeleteSource"
-				}
-			],
-			"Default": "CompleteRun"
-		},
-		"RunDeleteSource": {
-			"Type": "Action",
-			"ActionUrl": "https://actions.globus.org/hello_world",
-			"Parameters": {
-				"echo_string" : "We are now deleting",
-				"sleep_time": 5
-			},
-			"ResultPath": "$.RunDeleteSourceOutput",
 			"Next": "CompleteRun"
 		},
 		"CompleteRun": {
