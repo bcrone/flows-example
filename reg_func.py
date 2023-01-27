@@ -439,7 +439,7 @@ def main(ancestry, trait, iteration, isQuant, root):
 				  '0.0009','0.0008','0.0007','0.0006','0.0005','0.0004','0.0003','0.0002','0.0001',
 				  '0.00009','0.00008','0.00007','0.00006','0.00005','0.00004','0.00003','0.00002','0.00001']
 
-	partitions = range(1,21)
+	partitions = range(1,101)
 
 	print(f'Evaluating iteration {iteration} for {trait}')
 

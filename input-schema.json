@@ -2,8 +2,6 @@
     "additionalProperties": false,
     "required": [
 	    "runid",
-	    "gl",
-	    "poppy",
 	    "function"
     ],
     "properties": {
@@ -12,48 +10,6 @@
             "type": "string",
             "title": "Unique id used in titles and folders"
 	},
-    "gl": {
-        "additionalProperties": false,
-        "type": "object",
-        "format": "globus-collection",
-        "title": "Great Lakes ID and path",
-        "required": [
-    	    "id",
-    	    "path"
-        ],
-        "properties":{
-    	    "id": {
-                "title": "Great Lakes endpoint",
-    		    "type": "string",
-    		    "format": "uuid"
-    	    },
-    	    "path": {
-                "title": "Great Lakes path",
-    		    "type": "string"
-    	    }
-        }
-    },
-    "poppy": {
-        "additionalProperties": false,
-        "type": "object",
-        "format": "globus-collection",
-        "title": "Poppy ID and path",
-        "required": [
-    	    "id",
-    	    "path"
-        ],
-        "properties":{
-    	    "id": {
-		        "title": "Poppy endpoint",
-    		    "type": "string",
-    		    "format": "uuid"
-    	    },
-    	    "path": {
-		        "title": "Poppy path",
-    		    "type": "string"
-    	    }
-        }
-    },
 	"function": {
             "additionalProperties": false,
             "type": "object",
@@ -69,7 +25,7 @@
 			    "format": "uuid"
 		    },
 		    "func": {
-			    "title": "UUID of funcx functoin to call",
+			    "title": "UUID of funcx function to call",
 			    "type": "string",
 			    "format": "uuid"
 		    }

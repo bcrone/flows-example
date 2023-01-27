@@ -1,47 +1,27 @@
 {
 	"Comment": "Testing Flow",
-	"StartAt": "GLToPoppy",
+	"StartAt": "RunOptimization",
 	"States": {
-		"GLToPoppy": {
-			"Comment": "Test copy data from Great Lakes to Poppy",
-			"Type": "Action",
-			"ActionUrl": "https://actions.globus.org/transfer/transfer",
-		        "Parameters": {
-		            "label.=": "runid + ' Great Lakes to Poppy transfer'",
-			    "source_endpoint_id.$": "$.gl.id",
-			    "destination_endpoint_id.$": "$.poppy.id",
-			    "transfer_items": [
-			        {
-			            "source_path.$": "$.gl.path",
-			            "destination_path.$": "$.poppy.path",
-			            "recursive": true
-			        }
-			    ],
-			    "notify_on_succeeded": false,
-			    "notify_on_failed": true,
-			    "notify_on_inactive": true
-			},
-			"ResultPath": "$.SourceToScratchOutput",
-			"Next": "RunFunc"
-		},
-		"RunFunc": {
-			"Comment": "Run funcx on Great Lakes",
+		"RunOptimization": {
+			"Comment": "Run TITR Optimization on Great Lakes",
 			"Type": "Action",
 			"ActionUrl": "https://automate.funcx.org",
 			"ActionScope": "https://auth.globus.org/scopes/b3db7e59-a6f1-4947-95c2-59d6b7a70f8c/action_all",
-		        "Parameters": {
+			"Parameters": {
 				"tasks": [
 					{
-					"endpoint.$":"$.function.endpoint",
-					"function.$": "$.function.func",
-					"payload": {
-						"a": 10,
-						"b": 20
-					}
-					}
-				]
+						"endpoint.$": "$.function.endpoint",
+						"function.$": "$.function.func",
+						"payload": {
+							"ancestry": "EUR",
+							"trait": "height",
+							"iteration": 1,
+							"isQuant": "True",
+							"root": "/nfs/turbo/boylelab/crone/test/sample_data"
+						}
+					}]
 			},
-			"ResultPath": "$.SumOutput",
+			"ResultPath": "$.OptimizeOutput",
 			"Next": "CompleteRun"
 		},
 		"CompleteRun": {
