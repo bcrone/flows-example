@@ -446,7 +446,7 @@ def main(ancestry, trait, iteration, isQuant, root):
 				  '0.0009','0.0008','0.0007','0.0006','0.0005','0.0004','0.0003','0.0002','0.0001',
 				  '0.00009','0.00008','0.00007','0.00006','0.00005','0.00004','0.00003','0.00002','0.00001']
 
-	partitions = range(1,21)
+	partitions = range(1,101)
 
 	print(f'Evaluating iteration {iteration} for {trait}')
 
@@ -456,7 +456,7 @@ def main(ancestry, trait, iteration, isQuant, root):
 	else:
 		evaluateIteration(ancestry, trait, iteration, tissues, thresholds, partitions, isQuant, root)
 
-future = fx.submit(main, 10, 20, endpoint_id=endpoint_id)
+future = fx.submit(main, "EUR", "height", 1, True, "/nfs/turbo/boylelab/crone/test/sample_data", endpoint_id=endpoint_id)
 
 print("Status : ", future.done())
 
