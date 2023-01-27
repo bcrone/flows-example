@@ -1,13 +1,5 @@
 {
   "runid": "cli-testing-crone",
-  "gl": {
-     "id": "e0370902-9f48-11e9-821b-02b7a92d8e58",
-     "path": "/home/crone/flow"
-  },
-  "poppy": {
-     "id": "fffcc964-9771-11ed-b312-55098fa75e99",
-     "path": "/home/crone/flow"
-  },
   "function": {
      "endpoint": "477b416f-b2cc-45c4-8ea9-80c2304f418b",
      "func": "bfdb42c7-5ade-4e02-be34-5131c423b173"
