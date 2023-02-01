@@ -15,7 +15,7 @@
 						"payload": {
 							"trait": "BMI",
 							"iteration": 1,
-							"root": "/nfs/turbo/boylelab/crone/test/sample_data"
+							"root": "/nfs/turbo/boylelab/crone/test"
 						}
 					}]
 			},

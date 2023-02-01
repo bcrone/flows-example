@@ -1,17 +1,7 @@
 from funcx import FuncXClient, FuncXExecutor
 from pprint import pprint
 
-import numpy as np 
-import pandas as pd
-import glob
 from subprocess import Popen, PIPE
-import argparse
-import itertools
-from sklearn.linear_model import LinearRegression
-from scipy.stats import t
-from statsmodels.formula.api import ols
-from statsmodels.stats.anova import anova_lm
-from statsmodels.stats.diagnostic import compare_j
 
 fxc = FuncXClient()
 fx = FuncXExecutor(fxc)
@@ -43,7 +33,7 @@ def run_score(trait, iteration, root):
 				f'TRAIT="{trait}"',
 				f'TISSUE="{tissue}"',
 				f'ITERATION="{iteration}"',
-				f'ROOT_PATH="{root}"',
+				f'ROOT_PATH="{root}/sample_data"',
 				'',
 				'EUR_1KG_BFILE="${ROOT_PATH}/data/1KG/1000G_EUR_Phase3_plink/1000G.EUR.QC"',
 				'SUMSTATS="${ROOT_PATH}/data/GWAS/${TRAIT}/${TRAIT}.PLINK.TITR"',
