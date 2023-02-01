@@ -1,9 +1,9 @@
 {
 	"Comment": "Testing Flow",
-	"StartAt": "RunOptimization",
+	"StartAt": "RunScore",
 	"States": {
-		"RunOptimization": {
-			"Comment": "Run TITR Optimization on Great Lakes",
+		"RunScore": {
+			"Comment": "Run TITR Scores on Great Lakes",
 			"Type": "Action",
 			"ActionUrl": "https://automate.funcx.org",
 			"ActionScope": "https://auth.globus.org/scopes/b3db7e59-a6f1-4947-95c2-59d6b7a70f8c/action_all",
@@ -13,15 +13,13 @@
 						"endpoint.$": "$.function.endpoint",
 						"function.$": "$.function.func",
 						"payload": {
-							"ancestry": "EUR",
-							"trait": "height",
+							"trait": "BMI",
 							"iteration": 1,
-							"isQuant": "True",
 							"root": "/nfs/turbo/boylelab/crone/test/sample_data"
 						}
 					}]
 			},
-			"ResultPath": "$.OptimizeOutput",
+			"ResultPath": "$.runScoreOutput",
 			"Next": "CompleteRun"
 		},
 		"CompleteRun": {
